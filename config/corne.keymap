@@ -9,6 +9,42 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+        // QMK tap dances
+//     [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
+//     [TD_CTRL_SHIFT] = ACTION_TAP_DANCE_DOUBLE(KC_LCTL, KC_LSFT),
+//     [TD_GUI_ALT] = ACTION_TAP_DANCE_DOUBLE(KC_LGUI, KC_RALT),
+//     [TD_SHIFT_CTRL] = ACTION_TAP_DANCE_DOUBLE(KC_LSFT, KC_LCTL)
+
+        behaviors {
+                td_esc_caps: tap_dance_esccaps {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_ESC_CAPS";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp ESC>, <&kp CAPSLOCK>;
+                };
+                td_ctrl_shift: tap_dance_ctrlshift {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_CTRL_SHIFT";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp LCTRL>, <&kp LSHIFT>;
+                };
+                td_shift_ctrl: tap_dance_shiftctrl {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_SHIFT_CTRL";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp RSHIFT>, <&kp RCTRL>;
+                };
+                td_gui_alt: tap_dance_guialt {
+                        compatible = "zmk,behavior-tap-dance";
+                        label = "TAP_DANCE_GUI_ALT";
+                        #binding-cells = <0>;
+                        tapping-term-ms = <200>;
+                        bindings = <&kp LGUI>, <&kp LALT>;
+                };
+        };
         keymap {
                 compatible = "zmk,keymap";
 
@@ -20,10 +56,10 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         label = "Base";
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
-   &kp LCTRL &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
+   &td_esc_caps   &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &kp TAB        &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &td_ctrl_shift &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &td_shift_ctrl
+                        &kp LGUI &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
                 };
                 lower_layer {
