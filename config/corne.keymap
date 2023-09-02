@@ -88,22 +88,35 @@
 //    &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
    &kp NON_US_BSLH &kp LS(N1) &kp LS(N2)   &kp LS(N3)   &kp LS(N4)  &kp LS(N5)         &kp LS(N6)   &kp LS(N7)   &kp LS(N8) &kp LS(N9) &kp LS(N0) &kp MINUS
    &kp TAB         &kp C_PREV &kp C_VOL_DN &kp C_VOL_UP &kp C_NEXT  &kp EQUAL          &kp LEFT     &kp DOWN     &kp UP     &kp RIGHT  &kp BSLH   &kp GRAVE
-   &kp LCTRL       &kp BSLH   &trans       &kp C_PP     &trans      &kp LBKT           &kp RBKT     &kp PLUS     &kp LBRC   &kp RBRC   &kp PIPE   &trans
+   &trans          &kp BSLH   &trans       &kp C_PP     &trans      &kp LBKT           &kp RBKT     &kp PLUS     &kp LBRC   &kp RBRC   &kp PIPE   &trans
                     	                   &kp LGUI     &mo 3       &kp SPACE          &kp RET      &trans       &kp RALT
                         >;
                 };
                 middle_layer {
-// -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
                         label = "Middle";
                         bindings = <
    &kp NON_US_BSLH &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT      &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR &kp RPAR &kp BSPC
-   &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp MINUS &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT       &trans       &trans       &trans       &trans       &trans         &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &trans
+   &bt BT_CLR      &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &tog 4    &kp EQUAL &kp LBKT &kp RBKT &kp BSLH &kp GRAVE
+   &trans          &trans       &trans       &trans       &trans       &trans         &kp UNDER &kp PLUS  &kp LBRC &kp RBRC &kp PIPE &trans
                     	     &kp LGUI &trans   &kp SPACE                         &kp RET   &trans    &kp RALT
+                        >;
+                };
+                game_layer {
+                        label = "Game";
+                        bindings = <
+   &kp TAB    &kp Q &kp W &kp E &kp R &kp T   &kp Y &kp U  &kp I     &kp O   &kp P    &kp BSPC
+   &kp LSHIFT &kp A &kp S &kp D &kp F &kp G   &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LCTRL  &kp Z &kp X &kp C &kp V &kp B   &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &td_shift_ctrl
+                        &td_gui_alt &mo 5 &kp SPACE   &kp RET &mo 2 &kp RALT
+                        >;
+                };
+                game_up_layer {
+                        label = "Game up";
+                        bindings = <
+   &kp ESC    &kp N1 &kp N2 &kp N3 &kp N4 &kp N5  &kp N6 &kp N7 &kp N8    &kp N9  &kp N0  &kp BSPC
+   &kp LSHIFT &kp A  &kp S  &kp D  &kp F  &kp G   &tog 4 &kp J  &kp K     &kp L   &kp SEMI &kp SQT
+   &kp LCTRL  &kp Z  &kp X  &kp C  &kp V  &kp B   &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &td_shift_ctrl
+                            &td_gui_alt  &mo 1 &kp SPACE   &kp RET &mo 2 &kp RALT
                         >;
                 };
         };
