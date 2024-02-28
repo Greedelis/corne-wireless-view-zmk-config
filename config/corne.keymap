@@ -7,6 +7,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 
 / {
     // QMK tap dances
@@ -61,10 +62,10 @@
 
             label = "Base";
             bindings = <
-&kp ESCAPE      &kp Q  &kp W  &kp E        &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp TAB         &kp A  &kp S  &kp D        &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&td_ctrl_shift  &kp Z  &kp X  &kp C        &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &td_shift_ctrl
-                              &td_gui_alt  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
+&kp ESCAPE  &kp Q  &kp W  &kp E         &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&kp TAB     &kp A  &kp S  &kp D         &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
+&kp LCTRL   &kp Z  &kp X  &kp C         &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp RIGHT_SHIFT
+                          &kp LEFT_WIN  &mo 1  &kp SPACE    &kp RET  &mo 2  &kp RALT
             >;
         };
 
@@ -77,10 +78,10 @@
 
             label = "Lower";
             bindings = <
-&kp NON_US_BSLH  &kp N1  &kp N2  &kp N3    &kp N4   &kp N5       &kp N6    &kp N7    &kp N8    &kp N9     &kp N0  &kp BSPC
-&kp F1           &kp F2  &kp F3  &kp F4    &kp F5   &kp F6       &kp LEFT  &kp DOWN  &kp UP    &kp RIGHT  &trans  &trans
-&kp F7           &kp F8  &kp F9  &kp F10   &kp F11  &kp F12      &trans    &trans    &trans    &trans     &trans  &trans
-                                 &kp LGUI  &trans   &kp SPACE    &kp RET   &mo 3     &kp RALT
+&kp NON_US_BSLH  &kp N1  &kp N2  &kp N3    &kp N4   &kp N5       &kp N6   &kp N7          &kp N8          &kp N9     &kp N0  &kp BSPC
+&kp F1           &kp F2  &kp F3  &kp F4    &kp F5   &kp F6       &trans   &trans          &kp UP          &trans     &trans  &trans
+&kp F7           &kp F8  &kp F9  &kp F10   &kp F11  &kp F12      &trans   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &trans  &trans
+                                 &kp LGUI  &trans   &kp SPACE    &kp RET  &mo 3           &kp RALT
             >;
         };
 
@@ -104,29 +105,9 @@
             label = "Middle";
             bindings = <
 &kp NON_US_BSLH  &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp BSPC
-&bt BT_CLR       &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &tog 4     &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
-&trans           &trans        &trans        &trans        &trans        &trans          &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &trans
+&out OUT_TOG     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &trans     &kp EQUAL  &kp LBKT         &kp RBKT  &kp BSLH  &kp GRAVE
+&trans           &trans        &trans        &trans        &trans        &trans          &kp UNDER  &kp PLUS   &kp LBRC         &kp RBRC  &kp PIPE  &bt BT_CLR
                                              &kp LGUI      &trans        &kp SPACE       &kp RET    &trans     &kp RALT
-            >;
-        };
-
-        game_layer {
-            label = "Game";
-            bindings = <
-&kp TAB     &kp Q  &kp W  &kp E        &kp R  &kp T        &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
-&kp LSHIFT  &kp A  &kp S  &kp D        &kp F  &kp G        &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL   &kp Z  &kp X  &kp C        &kp V  &kp B        &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &td_shift_ctrl
-                          &td_gui_alt  &mo 5  &kp SPACE    &kp RET  &mo 2  &kp RALT
-            >;
-        };
-
-        game_up_layer {
-            label = "Game up";
-            bindings = <
-&kp ESC     &kp N1  &kp N2  &kp N3       &kp N4  &kp N5       &kp N6   &kp N7  &kp N8     &kp N9   &kp N0    &kp BSPC
-&kp LSHIFT  &kp A   &kp S   &kp D        &kp F   &kp G        &tog 4   &kp J   &kp K      &kp L    &kp SEMI  &kp SQT
-&kp LCTRL   &kp Z   &kp X   &kp C        &kp V   &kp B        &kp N    &kp M   &kp COMMA  &kp DOT  &kp FSLH  &td_shift_ctrl
-                            &td_gui_alt  &mo 1   &kp SPACE    &kp RET  &mo 2   &kp RALT
             >;
         };
     };
